@@ -1,21 +1,38 @@
 # bootproject
-SpringBoot JPA
+JPA를 이용한 데이터처리페이지
 
-# 환경설정
-1. Spring Boot 3.1.0
-2. Java Version - Amazon Corretto version 17.0.7
-3. JPA , thymeleaf , Lombok , MySQL
+# 개발환경
+1. IDE: IntelliJ IDEA Community
+2. Spring Boot 3.1.0
+3. Java Version - Amazon Corretto version 17.0.7
+4. JPA , thymeleaf , Lombok , MySQL8.0.33
 
 # 진행
-2023.06.15
-프로젝트 생성<br>
-MySQL 연동<br>
-회원가입(save)<br>
-로그인(findbyMember)<br>
-목록출력(findAll)<br>
-상세조회(findbyId)<br>
-수정(save)<br>
-삭제(deleteById)<br>
-로그아웃(session 삭제)<br>
-ajax통신
+- 프로젝트 생성<br>
+- MySQL 연동(yml)<br>
 
+### 회원가입 및 로그인 
+1. 회원가입
+2. 로그인
+   - session
+3. 목록출력
+4. 상세조회
+5. 수정
+6. 삭제
+7. 로그아웃
+8. ajax통신
+   - 이메일 중복확인
+-------------------------
+### 게시판
+로그인(main.html) 게시판표시
+
+1. 글작성
+2. 목록
+   - 글번호(id)
+   - 제목(title)
+   - 작성자(writer)
+   - 작성일(date)
+   - 조회수(hits)
+3. 글조회
+4. 글수정
+5. 글삭제
