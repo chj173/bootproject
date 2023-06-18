@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>list</title>
+    <title>회원리스트</title>
 </head>
 <body>
-<h2>list.html</h2>
 <table>
     <tr>
         <th>id</th>
@@ -21,7 +20,7 @@
         <td th:text="${member.memberPassword}"></td>
         <td th:text="${member.memberName}"></td>
         <td>
-            <a th:href="@{|/member/${member.id}|}">조회</a>
+            <a th:href="@{|/member/list/${member.id}|}">조회</a>
         </td>
         <td>
             <a th:href="@{|/member/delete/${member.id}|}">삭제</a>
