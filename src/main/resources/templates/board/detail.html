@@ -30,6 +30,12 @@
         <th>contents</th>
         <td th:text="${board.boardContents}"></td>
     </tr>
+    <tr th:if="${board.fileAttached == 1}">
+        <th>image</th>
+        <td th:each="fileName: ${board.storedFileName}">
+            <img th:src="@{|/upload/${fileName}|}" alt="">
+        </td>
+    </tr>
 </table>
 <button onclick="listReq()">목록</button>
 <button onclick="updateReq()">수정</button>
@@ -38,7 +44,7 @@
 <script th:inline="javascript">
     const listReq = () => {
         console.log("목록 요청");
-        location.href = "/board/board";
+        location.href = "/board/paging?page=" + [[${page}]];
     }
     const updateReq = () => {
         console.log("수정 요청");
