@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>게시판</title>
 </head>
+<style>
+  table {
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
 <body>
+    <button onclick="saveReq()">글작성</button>
+    <button onclick="pagingReq()">페이징목록</button>
 <table>
     <tr>
         <th>글번호</th>
@@ -21,11 +35,14 @@
         <td th:text="${board.boardHits}"></td>
     </tr>
 </table>
-    <button onclick="saveReq()">글작성</button>
 </body>
 <script>
   const saveReq = () => {
     location.href = "/board/save";
   }
+  const pagingReq = () => {
+    location.href = "/board/paging";
+  }
+
 </script>
 </html>
