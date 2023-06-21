@@ -1,7 +1,9 @@
 package com.chj.bootProject.controller;
 
 import com.chj.bootProject.dto.BoardDTO;
+import com.chj.bootProject.dto.CommentDTO;
 import com.chj.bootProject.service.BoardService;
+import com.chj.bootProject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +21,7 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
+    private final CommentService commentService;
 
     // 게시판 화면
     @GetMapping("")
@@ -57,8 +60,12 @@ public class BoardController {
          */
         boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
+        /* 댓글 목록 가져오기 */
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        model.addAttribute("commentList", commentDTOList);
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", pageable.getPageNumber());
+
         return "/board/detail";
     }
 
@@ -74,14 +81,14 @@ public class BoardController {
     public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
         BoardDTO board = boardService.update(boardDTO);
         model.addAttribute("board", board);
-        return "/board/paging";
+        return "redirect:/board/paging";
     }
 
     // 글삭제
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         boardService.delete(id);
-        return "redirect:/board/board";
+        return "redirect:/board/paging";
     }
 
     // 페이징목록
